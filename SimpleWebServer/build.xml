@@ -1,5 +1,5 @@
 <!-- Provide name for the project, and path for the files-->
- <project name="SimpleWebServer" default = "" basedir=".">
+ <project name="SimpleWebServer" default = "dist" basedir=".">
   <description>
   	
   	</description>
