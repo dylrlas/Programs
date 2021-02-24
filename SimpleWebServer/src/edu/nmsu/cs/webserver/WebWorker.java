@@ -249,7 +249,7 @@ public class WebWorker implements Runnable
             os.write("Date: ".getBytes());
             os.write(getDate().getBytes());
             os.write("\n".getBytes());
-            os.write("Server: Omar's Server\n".getBytes());
+            os.write("Server: Dylan's Server\n".getBytes());
             os.write("Connection: close\n".getBytes());
             os.write("Content-Type: ".getBytes());
             os.write(contentType.getBytes());
@@ -284,7 +284,7 @@ public class WebWorker implements Runnable
                         
                         if(content.contains("<cs371server>"))
                         {
-                                                content = "TAGGY";
+                                                content = "Hello World, the owner of this server is Dylan L.";
                         }
                         
                         os.write(content.getBytes());
