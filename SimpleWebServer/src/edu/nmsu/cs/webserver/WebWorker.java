@@ -74,7 +74,7 @@ public class WebWorker implements Runnable
                 String dateToString;
                 Date date = new Date();
                 DateFormat dateF = DateFormat.getDateTimeInstance();
-                dateF.setTimeZone(TimeZone.getTimeZone("MST"));
+                dateF.setTimeZone(TimeZone.getTimeZone("GMT"));
                 
                 dateToString = dateF.format(date);
                 return dateToString;
