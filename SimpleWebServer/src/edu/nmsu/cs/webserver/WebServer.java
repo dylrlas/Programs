@@ -19,13 +19,17 @@ package edu.nmsu.cs.webserver;
  * modified by Dylan Lassard
  **/
 import java.net.ServerSocket;
+import java.net.InetAddress;
 import java.net.Socket;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
+import java.net.UnknownHostException;
 
 public class WebServer
 {
 
 private ServerSocket socket;
-
 private boolean	 running;
 
 /**
@@ -112,6 +116,21 @@ public static void main(String args[])
 	{
 		System.err.println("Execution failed!");
 	}
-} // end main
-
+	
+	System.out.print("Hello World, the current date and time is" + " ");
+	String pattern = "MM-dd-yyyy HH:mm:ss.SSSZ";
+	SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+	String date = simpleDateFormat.format(new Date());
+	System.out.println(date);
+	
+	try {
+	System.out.println("Dylan L Server:");
+	System.out.println("Server machine details : " + InetAddress.getLocalHost().getCanonicalHostName());
+	System.out.println("Port number : " + port);
+	System.out.println();
+	} //end try
+	   catch (UnknownHostException e1) {
+	 	   e1.printStackTrace();
+	   } //end catch
+	} // end main
 } // end class
