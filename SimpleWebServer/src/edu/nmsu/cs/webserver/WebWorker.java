@@ -114,32 +114,11 @@ public class WebWorker implements Runnable
                                         setMimeType("text/html");
                                 } //end if
                                 
-                                else if(contentFile.contains(".gif"))
-                                {
-                                        setMimeType("image/gif");
-                                } //end else if
-                                
-                                else if(contentFile.contains(".jpeg") || contentFile.contains(".jpg"))
-                                {
-                                        setMimeType("image/jpeg");
-                                } //end else if
-                                
-                                else if(contentFile.contains(".png"))
-                                {
-                                        setMimeType("image/png");
-                                } //end else if
-                                
-                                else if(contentFile.contains(".ico")) 
-                                {
-                                        setFavicon(true);
-                                        setMimeType("image/x-icon");
-                                } //end else if
-                                
                                 else
                                 {
                                         setMimeType("text/html");
                                 } //end else
-                        }  //end else
+                        }  //end if block
                 
                 else 
                 {
@@ -333,7 +312,6 @@ public class WebWorker implements Runnable
         **/
         private void write404Content(OutputStream os, String path) throws Exception
         {
-            os.write("<html>\n<body bgcolor = \"#C5SBE8\">\n".getBytes());
             os.write("<h1><b>404: Not Found</b></h1>\n".getBytes());
             os.write("The page you are looking for does not exist!\n".getBytes());
             os.write("Unable to locate:".getBytes());
