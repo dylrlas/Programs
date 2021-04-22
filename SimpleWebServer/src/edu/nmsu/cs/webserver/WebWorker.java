@@ -65,7 +65,24 @@ public class WebWorker implements Runnable
               InputStream  is = socket.getInputStream();
               OutputStream os = socket.getOutputStream();
               readHTTPRequest(is);
-              writeHTTPHeader(os,"text/html");
+            
+              // Check url for file types and write the content type to output - with if-else ifs
+              if(URL.contains(".html")){
+                  writeHTTPHeader(os,"text/html");
+              }
+              else if(URL.contains(".gif")){
+                  writeHTTPHeader(os,"image/gif");
+              }
+              else if(URL.contains(".jpeg")){
+                  writeHTTPHeader(os,"image/jpeg");
+              }
+              else if(URL.contains(".png")){
+                  writeHTTPHeader(os,"image/png");
+              }
+              else if (URL.contains(".ico")){     // Extra credit URL icon (favicon.ico)
+                  writeHTTPHeader(os,"image/url-icon");
+              }
+              
               writeContent(os, URL);
               os.flush();
               socket.close();
@@ -165,6 +182,14 @@ public class WebWorker implements Runnable
         	    
                 SimpleDateFormat dateFormat = new SimpleDateFormat("mm/dd/yyyy");
                 Date date = new Date();
+                
+             // Open and read the files in a binary mode
+                if(someURL.contains(".gif") || someURL.contains(".jpeg") || someURL.contains(".png")
+                   || someURL.contains("favicon.cio")){
+
+                      byte[] encodedFile = Files.readAllBytes(Paths.get(someURL));
+                      os.write(encodedFile);
+                }
                 
                 
                 if(!someURL.contains("favicon.ico")) {
