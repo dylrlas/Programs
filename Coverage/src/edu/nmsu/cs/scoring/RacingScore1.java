@@ -10,67 +10,75 @@ package edu.nmsu.cs.scoring;
  * 
  * @author Jon Cook, Ph.D.
  * 
+ * 
+ * modified by: Dylan Lassard
+ * Date: 4-21-21
+ * CS 371- Software Dev.
+ * P3: Running Coverage on two separate programs - RacingScore1.java
  ***/
 
 public class RacingScore1
 {
 
-	int	score1;
+   int score1;
+   int score2;
+   int score3;
 
-	int	score2;
+public RacingScore1()
+{
+   score1 = 0;
+   score2 = 0;
+   score3 = 0;
+}
 
-	int	score3;
+public void recordScores(int s1, int s2, int s3)
+{
+   score1 = s1;
+   score2 = s2;
+   score3 = s3;
+}
 
-	public RacingScore1()
-	{
-		score1 = 0;
-		score2 = 0;
-		score3 = 0;
-	}
+public int overallScore()
+{
+   int s;
+   if (score1 < score2)
+      s = score1; // changed it to s = score1 instead of s = score2
+    
+   else 
+      s = score2; // changed it to s = score2 instead of s = score1
+    
+    if (s > score3)
+      s = score3; 
+    s = (score1+score2+score3) - s;
+   return s;
+}
 
-	public void recordScores(int s1, int s2, int s3)
-	{
-		score1 = s1;
-		score2 = s2;
-		score3 = s3;
-	}
-
-	public int overallScore()
-	{
-		int s;
-		if (score1 < score2)
-			s = score2;
-		else
-			s = score1;
-		if (s > score3)
-			s = score3;
-		s = (score1 + score2 + score3) - s;
-		return s;
-	}
-
-	public static void main(String args[])
-	{
-		int s1, s2, s3;
-		if (args.length != 3)
-		{
-			System.err.println("Error: must supply three arguments!");
-			return;
-		}
-		try
-		{
-			s1 = Integer.parseInt(args[0]);
-			s2 = Integer.parseInt(args[1]);
-			s3 = Integer.parseInt(args[2]);
-		}
-		catch (Exception e)
-		{
-			System.err.println("Error: arguments must be integers!");
-			return;
-		}
-		RacingScore1 score = new RacingScore1();
-		score.recordScores(s1, s2, s3);
-		System.out.println("Overall score: " + score.overallScore());
-		return;
-	}
+public static void main(String args[])
+{
+   int s1, s2, s3;
+   if (args.length != 3) {
+      System.err.println("Error: must supply three arguments!");
+      return;
+   }
+   try {
+      s1 = Integer.parseInt(args[0]);
+      s2 = Integer.parseInt(args[1]);
+      s3 = Integer.parseInt(args[2]);
+   } catch (Exception e) {
+      System.err.println("Error: arguments must be integers!");
+      return;
+   }
+   
+   if (s1<0 || s1>50 || s2<0 || s2>50 || s3<0 || s3>50) {
+      System.err.println("Error: scores must be between 0 and 50!");
+      return;
+    }
+   
+   RacingScore1 score = new RacingScore1();
+   score.recordScores(s1,s2,s3);
+   System.out.println("Overall score: " + score.overallScore());
+   return;
+}
 
 } // end class
+
