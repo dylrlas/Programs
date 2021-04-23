@@ -20,7 +20,7 @@
 
 		<target name="run" description="SimpleWebServer on port 8080.">
 			<java classname="edu.nmsu.cs.webserver.WebServer" classpath="${bin}" fork="true" >
-				<arg value="8085"/>
+				<arg value="8080"/>
 			</java>
 		</target>
 	</project>
