@@ -206,7 +206,7 @@ public class WebWorker implements Runnable
                    
                    //Replace server tag
                    String serverTag = "Dylan's functional working server";
-                   fileContents = fileContents.replace("<cs371server", serverTag);
+                   fileContents = fileContents.replace("<cs371server>", serverTag);
 
                    os.write(fileContents.getBytes());
                 }
