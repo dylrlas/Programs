@@ -1,3 +1,8 @@
+//Dylan Lassard
+//5-1-21
+//CS 371-Software Development
+//P4: Testing file name Circle2.java test that runs with JUnit testing tool
+
 package edu.nmsu.cs.circles;
 
 public class Circle2 extends Circle
@@ -5,7 +10,7 @@ public class Circle2 extends Circle
 
 	public Circle2(double x, double y, double radius)
 	{
-		super(y, x, radius);
+		super(x, y, radius); //fixed error where the y was in front of the x, so now it is "super(x, y, radius)"
 	}
 
 	public boolean intersects(Circle other)
@@ -19,4 +24,4 @@ public class Circle2 extends Circle
 			return false;
 	}
 
-}
+} //end Circle2 class

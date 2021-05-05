@@ -1,3 +1,8 @@
+//Dylan Lassard
+//5-1-21
+//CS 371-Software Development
+//P4: Testing file name CircleRun.java test that runs with JUnit testing tool 
+
 package edu.nmsu.cs.circles;
 
 /**
@@ -40,4 +45,4 @@ public class CircleRun
 		System.out.println("Circle 2 says: " + c2.intersects(c1));
 	}
 
-}
+} //end CircleRun class

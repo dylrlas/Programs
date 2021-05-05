@@ -1,3 +1,8 @@
+//Dylan Lassard
+//5-1-21
+//CS 371-Software Development
+//P4: Testing file name Circle.java test that runs with JUnit testing tool
+
 package edu.nmsu.cs.circles;
 
 /**
@@ -37,7 +42,8 @@ public abstract class Circle
 	 **/
 	public double scale(double factor)
 	{
-		radius = radius + factor;
+		//changed the operator from addition to multiplication to change scale factor 
+		radius = radius * factor;
 		return radius;
 	}
 
@@ -53,7 +59,7 @@ public abstract class Circle
 	public Point moveBy(double xOffset, double yOffset)
 	{
 		center.x = center.x + xOffset;
-		center.y = center.y + xOffset;
+		center.y = center.y + yOffset; //changed xOffset on this line to yoffset for center.y component
 		return center;
 	}
 
@@ -66,4 +72,4 @@ public abstract class Circle
 	 **/
 	public abstract boolean intersects(Circle other);
 
-}
+} //end Circle class
